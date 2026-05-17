@@ -12,438 +12,470 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-  <!-- ========== Sidebar Nav (Dashboard-style) ========== -->
+  <!-- ================ Paper texture overlay ================ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ================ Sidebar Nav ================ -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar__brand">
-      <div class="sidebar__logo">IC</div>
+      <div class="sidebar__logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 8 L8 32 M14 12 L14 28 M22 8 C28 8, 32 12, 32 16 C32 20, 28 24, 22 24 L20 24 M22 24 L32 32" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div class="sidebar__name">
         <div class="sidebar__name-zh">陳乙嘉</div>
         <div class="sidebar__name-en">Iris Chen</div>
       </div>
     </div>
 
+    <div class="sidebar__divider"></div>
+
     <nav class="sidebar__nav" aria-label="主要導覽">
       <a href="#top" class="side-link is-active" data-target="top">
-        <span class="side-link__icon">◐</span>
-        <span class="side-link__label">總覽</span>
-        <span class="side-link__en">Overview</span>
+        <span class="side-link__num">01</span>
+        <span class="side-link__label">序　Overview</span>
       </a>
       <a href="#about" class="side-link" data-target="about">
-        <span class="side-link__icon">◇</span>
-        <span class="side-link__label">關於乙嘉</span>
-        <span class="side-link__en">About</span>
+        <span class="side-link__num">02</span>
+        <span class="side-link__label">關於乙嘉　About</span>
       </a>
       <a href="#credentials" class="side-link" data-target="credentials">
-        <span class="side-link__icon">✦</span>
-        <span class="side-link__label">專業資歷</span>
-        <span class="side-link__en">Credentials</span>
+        <span class="side-link__num">03</span>
+        <span class="side-link__label">專業資歷　Credentials</span>
       </a>
       <a href="#services" class="side-link" data-target="services">
-        <span class="side-link__icon">⊞</span>
-        <span class="side-link__label">服務項目</span>
-        <span class="side-link__en">Services</span>
+        <span class="side-link__num">04</span>
+        <span class="side-link__label">服務項目　Services</span>
       </a>
       <a href="#knowledge" class="side-link" data-target="knowledge">
-        <span class="side-link__icon">≡</span>
-        <span class="side-link__label">財務知識</span>
-        <span class="side-link__en">Knowledge</span>
+        <span class="side-link__num">05</span>
+        <span class="side-link__label">財務知識　Knowledge</span>
       </a>
       <a href="#testimonials" class="side-link" data-target="testimonials">
-        <span class="side-link__icon">♡</span>
-        <span class="side-link__label">客戶見證</span>
-        <span class="side-link__en">Stories</span>
+        <span class="side-link__num">06</span>
+        <span class="side-link__label">客戶見證　Stories</span>
       </a>
       <a href="#contact" class="side-link" data-target="contact">
-        <span class="side-link__icon">✉</span>
-        <span class="side-link__label">聯絡我</span>
-        <span class="side-link__en">Contact</span>
+        <span class="side-link__num">07</span>
+        <span class="side-link__label">聯絡乙嘉　Contact</span>
       </a>
     </nav>
 
-    <div class="sidebar__status">
-      <div class="status-dot"></div>
-      <div class="status-text">
-        <div class="status-text__top" id="statusTop">服務中</div>
-        <div class="status-text__bot" id="statusBot">週一至週六 09:00–18:00</div>
-      </div>
-    </div>
+    <div class="sidebar__divider"></div>
 
-    <a href="#contact" class="sidebar__cta">
-      預約諮詢
-      <span>→</span>
-    </a>
+    <div class="sidebar__foot">
+      <div class="sidebar__status">
+        <div class="status-dot" id="statusDot"></div>
+        <div class="status-text">
+          <div class="status-text__top" id="statusTop">服務中</div>
+          <div class="status-text__bot" id="statusBot">即時回覆</div>
+        </div>
+      </div>
+      <a href="#contact" class="sidebar__cta">
+        <span>預約諮詢</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12 L19 12 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
   </aside>
 
-  <!-- ========== Mobile Top Bar ========== -->
+  <!-- ================ Mobile Top Bar ================ -->
   <header class="topbar">
     <div class="topbar__brand">
-      <span class="topbar__logo">IC</span>
-      <span>陳乙嘉 Iris Chen</span>
+      <span class="topbar__logo">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M8 8 L8 32 M14 12 L14 28 M22 8 C28 8, 32 12, 32 16 C32 20, 28 24, 22 24 L20 24 M22 24 L32 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="topbar__name">陳乙嘉　<i>Iris Chen</i></span>
     </div>
     <button class="topbar__toggle" id="navToggle" aria-label="開啟選單">
       <span></span><span></span><span></span>
     </button>
   </header>
 
-  <!-- ========== Main Dashboard ========== -->
+  <!-- ================ Main ================ -->
   <main class="main">
 
-    <!-- ===== Overview / Hero ===== -->
-    <section class="panel panel--hero" id="top">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Dashboard · Overview</div>
-          <h1 class="panel__title">歡迎來到 Iris 的財務空間</h1>
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="top">
+      <div class="hero__meta">
+        <div class="hero__meta-left">
+          <span class="folio">№ 01</span>
+          <span class="folio-divider"></span>
+          <span class="folio">Financial Advisor</span>
+          <span class="folio-divider"></span>
+          <span class="folio">Since 2010</span>
         </div>
-        <div class="panel__head-right">
-          <div class="live-clock">
-            <span class="live-clock__dot"></span>
-            <span id="liveTime">--:--:--</span>
-          </div>
+        <div class="hero__meta-right">
+          <span class="live-clock"><span class="live-clock__dot"></span><span id="liveTime">--:--</span></span>
         </div>
       </div>
 
-      <div class="hero-grid">
-        <div class="hero-grid__main">
-          <div class="hero-eyebrow">Financial Advisor · Since 2010</div>
-          <h2 class="hero-title">
-            <span class="hero-title__zh">陳乙嘉</span>
-            <span class="hero-title__en">Iris Chen</span>
-          </h2>
-          <p class="hero-slogan">「即使我不在您身旁，這裡的每一字，都是我陪伴您的方式。」</p>
-          <p class="hero-desc">
-            近 16 年金融理財顧問資歷　·　7 張專業證照　·　服務 0 至 65 歲各年齡層客群<br/>
+      <div class="hero__grid">
+        <div class="hero__text">
+          <div class="hero__eyebrow"><i>An Editorial of</i></div>
+          <h1 class="hero__title">
+            陳乙嘉
+            <span class="hero__title-en">Iris Chen</span>
+          </h1>
+          <div class="hero__role">金融理財顧問　·　Financial Advisor</div>
+
+          <div class="hero__rule"></div>
+
+          <blockquote class="hero__quote">
+            <span class="hero__quote-mark">“</span>
+            即使我不在您身旁，<br/>
+            這裡的每一字，<br/>
+            都是我陪伴您的方式。
+          </blockquote>
+
+          <p class="hero__desc">
+            近 16 年金融理財顧問資歷　·　7 張專業證照　·　服務 0 至 65 歲各年齡層客群。<br/>
             從保險規劃到宏觀財務稅務整合，讓您的財務安心有所依靠。
           </p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn btn--primary">預約免費諮詢 →</a>
+
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--primary">
+              <span>預約免費諮詢</span>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12 L19 12 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
             <a href="#about" class="btn btn--ghost">認識乙嘉</a>
           </div>
         </div>
 
-        <div class="hero-grid__side">
-          <div class="metric-card">
-            <div class="metric-card__top">
-              <span class="metric-card__label">年金融資歷</span>
-              <span class="metric-card__trend">▲</span>
+        <figure class="hero__figure">
+          <div class="hero__photo">
+            <img src="assets/img/hero-portrait.jpg" alt="陳乙嘉 Iris Chen 形象照"
+                 onerror="this.classList.add('img--missing')" />
+            <div class="hero__photo-deco" aria-hidden="true">
+              <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="none" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 4"/></svg>
             </div>
-            <div class="metric-card__num" data-count="16" data-suffix="+">0</div>
-            <div class="metric-card__sub">Since 2010.09.30</div>
-            <div class="metric-card__bar"><span style="width: 96%"></span></div>
           </div>
+          <figcaption class="hero__caption">
+            <span class="hero__caption-en"><i>Portrait, ed. 2026</i></span>
+            <span class="hero__caption-line"></span>
+            <span class="hero__caption-zh">以人為本　以心為依</span>
+          </figcaption>
+        </figure>
+      </div>
 
-          <div class="metric-card">
-            <div class="metric-card__top">
-              <span class="metric-card__label">專業證照</span>
-              <span class="metric-card__trend">★</span>
-            </div>
-            <div class="metric-card__num" data-count="7" data-suffix=" 張">0</div>
-            <div class="metric-card__sub">Certified Expertise</div>
-            <div class="metric-card__bar"><span style="width: 100%"></span></div>
+      <!-- Editorial stats strip -->
+      <div class="hero__stats">
+        <div class="stat">
+          <div class="stat__num" data-count="16" data-suffix="">0</div>
+          <div class="stat__plus">＋</div>
+          <div class="stat__label">
+            <span>年金融資歷</span>
+            <i>Years of Practice</i>
           </div>
-
-          <div class="metric-card metric-card--accent">
-            <div class="metric-card__top">
-              <span class="metric-card__label">客群覆蓋</span>
-              <span class="metric-card__trend">◇</span>
-            </div>
-            <div class="metric-card__num metric-card__num--small">0 – 65<span class="unit"> 歲</span></div>
-            <div class="metric-card__sub">All-stage Coverage</div>
-            <div class="metric-card__bar"><span style="width: 88%"></span></div>
+        </div>
+        <div class="stat__rule"></div>
+        <div class="stat">
+          <div class="stat__num" data-count="7" data-suffix="">0</div>
+          <div class="stat__plus">張</div>
+          <div class="stat__label">
+            <span>專業證照</span>
+            <i>Certifications</i>
           </div>
-
-          <div class="metric-card">
-            <div class="metric-card__top">
-              <span class="metric-card__label">回覆時間</span>
-              <span class="metric-card__trend">⚡</span>
-            </div>
-            <div class="metric-card__num" data-count="24" data-suffix=" H">0</div>
-            <div class="metric-card__sub">Reliable Response</div>
-            <div class="metric-card__bar"><span style="width: 100%"></span></div>
+        </div>
+        <div class="stat__rule"></div>
+        <div class="stat">
+          <div class="stat__num stat__num--text">0<small>–</small>65</div>
+          <div class="stat__plus">歲</div>
+          <div class="stat__label">
+            <span>客群覆蓋</span>
+            <i>All-stage Coverage</i>
+          </div>
+        </div>
+        <div class="stat__rule"></div>
+        <div class="stat">
+          <div class="stat__num" data-count="24" data-suffix="">0</div>
+          <div class="stat__plus">H</div>
+          <div class="stat__label">
+            <span>內回覆</span>
+            <i>Reliable Response</i>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== About ===== -->
-    <section class="panel" id="about">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">About · 關於</div>
-          <h2 class="panel__title">三個核心價值</h2>
-          <p class="panel__lead">每一份財務規劃，都是一段值得信任的陪伴關係。</p>
-        </div>
+    <!-- ============ About ============ -->
+    <section class="about" id="about">
+      <div class="folio-bar">
+        <span class="folio">№ 02</span>
+        <span class="folio-divider"></span>
+        <span class="folio">About</span>
       </div>
 
-      <div class="pillars">
-        <article class="pillar" data-pillar="01">
-          <div class="pillar__head">
-            <span class="pillar__num">01</span>
-            <span class="pillar__icon">◐</span>
+      <div class="about__grid">
+        <figure class="about__figure">
+          <div class="about__photo">
+            <img src="assets/img/about-feature.jpg" alt="Iris 工作場景" onerror="this.classList.add('img--missing')" />
           </div>
-          <h3 class="pillar__title">以人為本</h3>
-          <div class="pillar__en">Human-centered</div>
-          <p class="pillar__desc">深入了解您的人生階段與目標，量身打造最適合的財務方案，不推銷、不套用模板。</p>
-          <div class="pillar__meta">
-            <span>個別諮詢</span><span>客製規劃</span>
-          </div>
-        </article>
+          <figcaption><i>The studio</i>　·　乙嘉的工作日常</figcaption>
+        </figure>
 
-        <article class="pillar" data-pillar="02">
-          <div class="pillar__head">
-            <span class="pillar__num">02</span>
-            <span class="pillar__icon">◇</span>
-          </div>
-          <h3 class="pillar__title">風險把關</h3>
-          <div class="pillar__en">Risk Guardian</div>
-          <p class="pillar__desc">以專業視角識別潛在財務風險，從保障缺口到資產配置，替您預先建立防護網。</p>
-          <div class="pillar__meta">
-            <span>風險識別</span><span>缺口分析</span>
-          </div>
-        </article>
+        <div class="about__body">
+          <h2 class="section__title">
+            關於乙嘉
+            <span class="section__title-en"><i>About Iris</i></span>
+          </h2>
+          <p class="about__lead">
+            每一份財務規劃，都是一段值得信任的陪伴關係。<br/>
+            從保險、房貸到稅務整合，乙嘉以專業與真誠，<br/>為您把關每一個重要決定。
+          </p>
 
-        <article class="pillar" data-pillar="03">
-          <div class="pillar__head">
-            <span class="pillar__num">03</span>
-            <span class="pillar__icon">○</span>
-          </div>
-          <h3 class="pillar__title">長遠規劃</h3>
-          <div class="pillar__en">Lifelong Planning</div>
-          <p class="pillar__desc">陪伴您走過人生每個財務里程碑，從成家、購屋、子女教育到退休與傳承。</p>
-          <div class="pillar__meta">
-            <span>階段陪伴</span><span>世代傳承</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===== Credentials ===== -->
-    <section class="panel panel--dark" id="credentials">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Credentials · 證照與專業</div>
-          <h2 class="panel__title">7 張專業證照　·　3 大權威領域</h2>
-          <p class="panel__lead">自 2010 年 9 月 30 日入行，近 16 年深耕金融理財領域。</p>
+          <ol class="pillars">
+            <li class="pillar">
+              <div class="pillar__num">i.</div>
+              <div class="pillar__main">
+                <h3>以人為本　<i>Human-centered</i></h3>
+                <p>深入了解您的人生階段與目標，量身打造最適合的財務方案，不推銷、不套用模板。</p>
+              </div>
+            </li>
+            <li class="pillar">
+              <div class="pillar__num">ii.</div>
+              <div class="pillar__main">
+                <h3>風險把關　<i>Risk Guardian</i></h3>
+                <p>以專業視角識別潛在財務風險，從保障缺口到資產配置，替您預先建立防護網。</p>
+              </div>
+            </li>
+            <li class="pillar">
+              <div class="pillar__num">iii.</div>
+              <div class="pillar__main">
+                <h3>長遠規劃　<i>Lifelong Planning</i></h3>
+                <p>陪伴您走過人生每個財務里程碑，從成家、購屋、子女教育到退休與傳承。</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <div class="panel__head-right">
-          <div class="badge-stat">
-            <span class="badge-stat__num">16<small>+</small></span>
-            <span class="badge-stat__label">YEARS</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="creds">
-        <div class="cred" style="--p:96%">
-          <div class="cred__no">01</div>
-          <div class="cred__body">
-            <div class="cred__name">金融市場分析與投資規劃</div>
-            <div class="cred__en">Market Analysis & Investment Planning</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Expert</div>
-        </div>
-        <div class="cred" style="--p:94%">
-          <div class="cred__no">02</div>
-          <div class="cred__body">
-            <div class="cred__name">人壽保險｜人身風險保障規劃</div>
-            <div class="cred__en">Life Insurance Planning</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Expert</div>
-        </div>
-        <div class="cred" style="--p:90%">
-          <div class="cred__no">03</div>
-          <div class="cred__body">
-            <div class="cred__name">產險｜財產損失風險管理</div>
-            <div class="cred__en">Property Risk Management</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Senior</div>
-        </div>
-        <div class="cred" style="--p:88%">
-          <div class="cred__no">04</div>
-          <div class="cred__body">
-            <div class="cred__name">外幣｜外幣資產配置與匯率管理</div>
-            <div class="cred__en">Foreign Currency Allocation</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Senior</div>
-        </div>
-        <div class="cred" style="--p:92%">
-          <div class="cred__no">05</div>
-          <div class="cred__body">
-            <div class="cred__name">投資型保單｜商品規劃與配置</div>
-            <div class="cred__en">Investment-linked Policy</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Expert</div>
-        </div>
-        <div class="cred" style="--p:95%">
-          <div class="cred__no">06</div>
-          <div class="cred__body">
-            <div class="cred__name">RFA 理財顧問｜國際認證資格</div>
-            <div class="cred__en">Registered Financial Advisor</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Certified</div>
-        </div>
-        <div class="cred" style="--p:90%">
-          <div class="cred__no">07</div>
-          <div class="cred__body">
-            <div class="cred__name">MMT 天賦分析｜諮詢師資格</div>
-            <div class="cred__en">MMT Talent Analyst</div>
-            <div class="cred__bar"><span></span></div>
-          </div>
-          <div class="cred__level">Certified</div>
-        </div>
-      </div>
-
-      <div class="domains">
-        <article class="domain">
-          <div class="domain__icon">＋</div>
-          <h3 class="domain__title">房產金融</h3>
-          <div class="domain__en">Real Estate Finance</div>
-          <p class="domain__desc">房屋貸款規劃、房產投資分析、不動產金融整合策略。</p>
-        </article>
-        <article class="domain">
-          <div class="domain__icon">◇</div>
-          <h3 class="domain__title">風險評估</h3>
-          <div class="domain__en">Risk Assessment</div>
-          <p class="domain__desc">全方位風險識別、保障缺口分析、個人化風險管理方案。</p>
-        </article>
-        <article class="domain">
-          <div class="domain__icon">○</div>
-          <h3 class="domain__title">財務整合</h3>
-          <div class="domain__en">Financial Integration</div>
-          <p class="domain__desc">宏觀財務規劃、稅務優化、跨代際財富傳承策略。</p>
-        </article>
       </div>
     </section>
 
-    <!-- ===== Services ===== -->
-    <section class="panel" id="services">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Services · 服務項目</div>
-          <h2 class="panel__title">六大核心服務</h2>
-          <p class="panel__lead">涵蓋人生各階段財務需求。點選分類，找到最適合您的方案。</p>
+    <!-- ============ Credentials ============ -->
+    <section class="credentials" id="credentials">
+      <div class="credentials__banner">
+        <img src="assets/img/credentials-banner.jpg" alt="" onerror="this.classList.add('img--missing')" />
+        <div class="credentials__banner-overlay"></div>
+        <div class="credentials__banner-text">
+          <div class="folio folio--light">№ 03　·　Credentials</div>
+          <h2 class="credentials__headline">
+            十六年　·　七張證照<br/>
+            <i>The work behind every promise.</i>
+          </h2>
         </div>
       </div>
 
-      <div class="filters" role="tablist" aria-label="服務分類">
-        <button class="filter is-active" data-filter="all" role="tab">全部 6</button>
-        <button class="filter" data-filter="protect" role="tab">保障規劃</button>
-        <button class="filter" data-filter="asset" role="tab">資產配置</button>
-        <button class="filter" data-filter="plan" role="tab">整體理財</button>
+      <div class="credentials__body">
+        <p class="credentials__lead">
+          自 2010 年 9 月 30 日入行，近 16 年深耕金融理財領域。<br/>
+          每一張證照，都是承諾，也是底氣。
+        </p>
+
+        <ol class="cert-list">
+          <li class="cert"><span class="cert__no">01</span><div class="cert__main"><span class="cert__name">金融市場分析與投資規劃</span><i class="cert__en">Market Analysis & Investment Planning</i></div><span class="cert__tag">Expert</span></li>
+          <li class="cert"><span class="cert__no">02</span><div class="cert__main"><span class="cert__name">人壽保險｜人身風險保障規劃</span><i class="cert__en">Life Insurance Planning</i></div><span class="cert__tag">Expert</span></li>
+          <li class="cert"><span class="cert__no">03</span><div class="cert__main"><span class="cert__name">產險｜財產損失風險管理</span><i class="cert__en">Property Risk Management</i></div><span class="cert__tag">Senior</span></li>
+          <li class="cert"><span class="cert__no">04</span><div class="cert__main"><span class="cert__name">外幣｜外幣資產配置與匯率管理</span><i class="cert__en">Foreign Currency Allocation</i></div><span class="cert__tag">Senior</span></li>
+          <li class="cert"><span class="cert__no">05</span><div class="cert__main"><span class="cert__name">投資型保單｜商品規劃與配置</span><i class="cert__en">Investment-linked Policy</i></div><span class="cert__tag">Expert</span></li>
+          <li class="cert"><span class="cert__no">06</span><div class="cert__main"><span class="cert__name">RFA 理財顧問　·　國際認證</span><i class="cert__en">Registered Financial Advisor</i></div><span class="cert__tag">Certified</span></li>
+          <li class="cert"><span class="cert__no">07</span><div class="cert__main"><span class="cert__name">MMT 天賦分析　·　諮詢師</span><i class="cert__en">MMT Talent Analyst</i></div><span class="cert__tag">Certified</span></li>
+        </ol>
+
+        <div class="domains">
+          <article class="domain">
+            <div class="domain__ill">
+              <svg viewBox="0 0 80 80" fill="none">
+                <path d="M14 38 L40 18 L66 38 L66 64 L14 64 Z" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M30 64 L30 46 L50 46 L50 64" stroke="currentColor" stroke-width="1.2"/>
+                <circle cx="40" cy="30" r="1.4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>房產金融　<i>Real Estate</i></h3>
+            <p>房屋貸款規劃、房產投資分析、<br/>不動產金融整合策略。</p>
+          </article>
+          <article class="domain">
+            <div class="domain__ill">
+              <svg viewBox="0 0 80 80" fill="none">
+                <path d="M40 12 L66 22 L66 44 C66 58, 54 66, 40 70 C26 66, 14 58, 14 44 L14 22 Z" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M30 42 L37 49 L52 33" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>風險評估　<i>Risk Assessment</i></h3>
+            <p>全方位風險識別、保障缺口分析、<br/>個人化風險管理方案。</p>
+          </article>
+          <article class="domain">
+            <div class="domain__ill">
+              <svg viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="40" r="26" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M14 40 L66 40 M40 14 L40 66 M22 22 L58 58 M22 58 L58 22" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+                <circle cx="40" cy="40" r="6" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>財務整合　<i>Integration</i></h3>
+            <p>宏觀財務規劃、稅務優化、<br/>跨代際財富傳承策略。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section class="services" id="services">
+      <div class="folio-bar">
+        <span class="folio">№ 04</span>
+        <span class="folio-divider"></span>
+        <span class="folio">Services</span>
       </div>
 
-      <div class="services" id="servicesGrid">
-        <article class="service" data-cat="protect">
-          <div class="service__top">
-            <span class="service__index">01</span>
-            <span class="service__cat">保障規劃</span>
+      <header class="section__head">
+        <h2 class="section__title">
+          六大核心服務
+          <span class="section__title-en"><i>Six Practices</i></span>
+        </h2>
+        <p class="section__lead">涵蓋人生各階段財務需求，點選分類，找到最適合您的方案。</p>
+      </header>
+
+      <div class="filters" role="tablist">
+        <button class="filter is-active" data-filter="all" role="tab">All　全部</button>
+        <button class="filter" data-filter="protect" role="tab">Protect　保障</button>
+        <button class="filter" data-filter="asset" role="tab">Asset　資產</button>
+        <button class="filter" data-filter="plan" role="tab">Plan　規劃</button>
+      </div>
+
+      <!-- Bento grid: featured + smaller -->
+      <div class="bento" id="servicesGrid">
+
+        <article class="svc svc--feature" data-cat="protect">
+          <div class="svc__photo">
+            <img src="assets/img/service-feature.jpg" alt="" onerror="this.classList.add('img--missing')" />
           </div>
-          <h3 class="service__title">保險規劃</h3>
-          <div class="service__en">Insurance Planning</div>
-          <p class="service__desc">壽險、醫療險、意外險、失能險全方位保障規劃。</p>
-          <div class="service__tags"><span>壽險</span><span>醫療</span><span>意外</span><span>失能</span></div>
+          <div class="svc__body">
+            <div class="svc__top">
+              <span class="svc__no">01</span>
+              <span class="svc__cat">Protect　保障</span>
+            </div>
+            <h3 class="svc__title">保險規劃<br/><i>Insurance Planning</i></h3>
+            <p class="svc__desc">壽險、醫療險、意外險、失能險全方位保障規劃。每一份保障，都從理解您的人生開始。</p>
+            <div class="svc__tags"><span>壽險</span><span>醫療</span><span>意外</span><span>失能</span></div>
+          </div>
         </article>
-        <article class="service" data-cat="asset">
-          <div class="service__top">
-            <span class="service__index">02</span>
-            <span class="service__cat">資產配置</span>
+
+        <article class="svc" data-cat="asset">
+          <div class="svc__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M10 30 L32 12 L54 30 L54 52 L10 52 Z" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M26 52 L26 38 L38 38 L38 52" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
           </div>
-          <h3 class="service__title">房貸規劃</h3>
-          <div class="service__en">Mortgage Planning</div>
-          <p class="service__desc">房屋貸款試算、利率比較、還款策略規劃。</p>
-          <div class="service__tags"><span>貸款試算</span><span>利率比較</span><span>還款策略</span></div>
+          <div class="svc__top"><span class="svc__no">02</span><span class="svc__cat">Asset　資產</span></div>
+          <h3 class="svc__title">房貸規劃<br/><i>Mortgage Planning</i></h3>
+          <p class="svc__desc">房屋貸款試算、利率比較、還款策略規劃。</p>
         </article>
-        <article class="service" data-cat="asset">
-          <div class="service__top">
-            <span class="service__index">03</span>
-            <span class="service__cat">資產配置</span>
+
+        <article class="svc" data-cat="asset">
+          <div class="svc__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M32 32 L32 12 A20 20 0 0 1 49 42 Z" fill="currentColor" opacity="0.18"/>
+              <path d="M32 12 L32 32 L49 42" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
           </div>
-          <h3 class="service__title">投資型保單</h3>
-          <div class="service__en">Investment-linked Policy</div>
-          <p class="service__desc">結合保障與投資的商品規劃，依風險承受度配置。</p>
-          <div class="service__tags"><span>保障</span><span>投資</span><span>風險評估</span></div>
+          <div class="svc__top"><span class="svc__no">03</span><span class="svc__cat">Asset　資產</span></div>
+          <h3 class="svc__title">投資型保單<br/><i>Investment-linked</i></h3>
+          <p class="svc__desc">結合保障與投資的商品規劃，依風險承受度配置。</p>
         </article>
-        <article class="service" data-cat="plan">
-          <div class="service__top">
-            <span class="service__index">04</span>
-            <span class="service__cat">整體理財</span>
+
+        <article class="svc" data-cat="plan">
+          <div class="svc__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M10 50 L22 38 L32 46 L52 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M44 22 L52 22 L52 30" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="22" cy="38" r="1.8" fill="currentColor"/>
+              <circle cx="32" cy="46" r="1.8" fill="currentColor"/>
+              <circle cx="52" cy="22" r="1.8" fill="currentColor"/>
+            </svg>
           </div>
-          <h3 class="service__title">理財規劃</h3>
-          <div class="service__en">Financial Planning</div>
-          <p class="service__desc">收支管理、儲蓄計畫、退休準備一站式服務。</p>
-          <div class="service__tags"><span>收支</span><span>儲蓄</span><span>退休</span></div>
+          <div class="svc__top"><span class="svc__no">04</span><span class="svc__cat">Plan　規劃</span></div>
+          <h3 class="svc__title">理財規劃<br/><i>Financial Planning</i></h3>
+          <p class="svc__desc">收支管理、儲蓄計畫、退休準備一站式服務。</p>
         </article>
-        <article class="service" data-cat="protect">
-          <div class="service__top">
-            <span class="service__index">05</span>
-            <span class="service__cat">保障規劃</span>
+
+        <article class="svc" data-cat="protect">
+          <div class="svc__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M32 8 C20 20, 14 32, 32 32 C50 32, 44 20, 32 8 Z" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M32 32 L32 54" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M28 50 L32 54 L36 50" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <h3 class="service__title">產險規劃</h3>
-          <div class="service__en">Property Insurance</div>
-          <p class="service__desc">車險、火險、責任險等財產保障規劃。</p>
-          <div class="service__tags"><span>車險</span><span>火險</span><span>責任險</span></div>
+          <div class="svc__top"><span class="svc__no">05</span><span class="svc__cat">Protect　保障</span></div>
+          <h3 class="svc__title">產險規劃<br/><i>Property Insurance</i></h3>
+          <p class="svc__desc">車險、火險、責任險等財產保障規劃。</p>
         </article>
-        <article class="service" data-cat="asset">
-          <div class="service__top">
-            <span class="service__index">06</span>
-            <span class="service__cat">資產配置</span>
+
+        <article class="svc" data-cat="asset">
+          <div class="svc__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="1.2"/>
+              <ellipse cx="32" cy="32" rx="10" ry="22" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M10 32 L54 32" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
           </div>
-          <h3 class="service__title">外幣資產</h3>
-          <div class="service__en">Foreign Currency Assets</div>
-          <p class="service__desc">外幣保單、外幣儲蓄規劃、匯率風險分散。</p>
-          <div class="service__tags"><span>外幣保單</span><span>儲蓄</span><span>匯率</span></div>
+          <div class="svc__top"><span class="svc__no">06</span><span class="svc__cat">Asset　資產</span></div>
+          <h3 class="svc__title">外幣資產<br/><i>Foreign Currency</i></h3>
+          <p class="svc__desc">外幣保單、外幣儲蓄規劃、匯率風險分散。</p>
         </article>
       </div>
 
+      <!-- Premium services -->
       <div class="premium">
         <div class="premium__head">
-          <div class="panel__breadcrumb">Premium Services · 進階</div>
-          <h3 class="premium__title">進階專業服務</h3>
+          <span class="folio folio--light">Premium Practice　·　進階專業</span>
+          <h3>當您準備好走得更遠</h3>
         </div>
         <div class="premium__grid">
-          <div class="premium__item">
-            <div class="premium__icon">⌘</div>
-            <h4>宏觀財務整合</h4>
+          <article class="premium__item">
+            <div class="premium__no">i</div>
+            <h4>宏觀財務整合　<i>Macro Integration</i></h4>
             <p>跨產品、跨時間軸的整體財務藍圖規劃。</p>
-          </div>
-          <div class="premium__item">
-            <div class="premium__icon">§</div>
-            <h4>稅務規劃分析</h4>
+          </article>
+          <article class="premium__item">
+            <div class="premium__no">ii</div>
+            <h4>稅務規劃分析　<i>Tax Strategy</i></h4>
             <p>合法節稅、遺贈規劃、財富傳承策略。</p>
-          </div>
-          <div class="premium__item">
-            <div class="premium__icon">∞</div>
-            <h4>企業財務顧問</h4>
+          </article>
+          <article class="premium__item">
+            <div class="premium__no">iii</div>
+            <h4>企業財務顧問　<i>Corporate Advisor</i></h4>
             <p>企業主個人與公司財務的整合性顧問服務。</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== Knowledge ===== -->
-    <section class="panel" id="knowledge">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Knowledge Hub · 知識專欄</div>
-          <h2 class="panel__title">把專業翻譯成你聽得懂的語言</h2>
-          <p class="panel__lead">點選分類，閱讀想了解的主題。</p>
-        </div>
+    <!-- ============ Knowledge ============ -->
+    <section class="knowledge" id="knowledge">
+      <div class="folio-bar">
+        <span class="folio">№ 05</span>
+        <span class="folio-divider"></span>
+        <span class="folio">Knowledge Hub</span>
       </div>
 
-      <div class="filters" role="tablist" aria-label="文章分類">
-        <button class="filter is-active" data-kfilter="all" role="tab">全部</button>
+      <header class="section__head section__head--split">
+        <h2 class="section__title">
+          財務知識專欄
+          <span class="section__title-en"><i>The Reading Room</i></span>
+        </h2>
+        <p class="section__lead">把專業翻譯成你聽得懂的語言，<br/>讓財務決定不再焦慮。</p>
+      </header>
+
+      <div class="filters" role="tablist">
+        <button class="filter is-active" data-kfilter="all" role="tab">All</button>
         <button class="filter" data-kfilter="insurance" role="tab">保險觀念</button>
         <button class="filter" data-kfilter="house" role="tab">房產金融</button>
         <button class="filter" data-kfilter="retire" role="tab">退休規劃</button>
@@ -451,158 +483,236 @@
         <button class="filter" data-kfilter="risk" role="tab">風險管理</button>
       </div>
 
-      <div class="articles" id="articlesGrid">
-        <article class="article" data-kcat="insurance">
-          <div class="article__tag">保險觀念</div>
-          <h3 class="article__title">為什麼年輕就要買保險？越早規劃越划算的 5 個理由</h3>
-          <div class="article__meta">
-            <span>5 分鐘閱讀</span>
-            <span class="article__arrow">→</span>
+      <!-- Editorial TOC: one featured + list -->
+      <div class="reading" id="articlesGrid">
+
+        <article class="story story--featured" data-kcat="insurance">
+          <div class="story__photo">
+            <img src="assets/img/article-insurance.jpg" alt="" onerror="this.classList.add('img--missing')" />
+          </div>
+          <div class="story__body">
+            <div class="story__meta">
+              <span class="story__cat">保險觀念　·　Insurance</span>
+              <span class="story__dot">·</span>
+              <span class="story__read">5 min read</span>
+            </div>
+            <h3 class="story__title">為什麼年輕就要買保險？<br/>越早規劃越划算的 5 個理由</h3>
+            <p class="story__excerpt">許多人總以為保險是「以後再說」的事，事實上越年輕投保，保費越低、核保越容易。從複利時間、保障空窗到健康紅利，本文一次看懂年輕人該知道的 5 件事。</p>
+            <a href="#" class="story__more">繼續閱讀　<i>Read on</i> →</a>
           </div>
         </article>
-        <article class="article" data-kcat="house">
-          <div class="article__tag">房產金融</div>
-          <h3 class="article__title">房貸利率怎麼選？固定利率 vs 機動利率完整比較</h3>
-          <div class="article__meta">
-            <span>7 分鐘閱讀</span>
-            <span class="article__arrow">→</span>
-          </div>
-        </article>
-        <article class="article" data-kcat="retire">
-          <div class="article__tag">退休規劃</div>
-          <h3 class="article__title">30 歲開始存退休金，每月只需這樣做</h3>
-          <div class="article__meta">
-            <span>6 分鐘閱讀</span>
-            <span class="article__arrow">→</span>
-          </div>
-        </article>
-        <article class="article" data-kcat="tax">
-          <div class="article__tag">稅務知識</div>
-          <h3 class="article__title">遺產稅與贈與稅：提前規劃，讓財富傳承更有效率</h3>
-          <div class="article__meta">
-            <span>8 分鐘閱讀</span>
-            <span class="article__arrow">→</span>
-          </div>
-        </article>
-        <article class="article" data-kcat="risk">
-          <div class="article__tag">風險管理</div>
-          <h3 class="article__title">保障缺口檢視：您的保險真的夠用嗎？</h3>
-          <div class="article__meta">
-            <span>5 分鐘閱讀</span>
-            <span class="article__arrow">→</span>
-          </div>
-        </article>
+
+        <ul class="story-list">
+          <li class="story-list__item" data-kcat="house">
+            <div class="story-list__photo">
+              <img src="assets/img/article-mortgage.jpg" alt="" onerror="this.classList.add('img--missing')" />
+            </div>
+            <div class="story-list__body">
+              <div class="story__meta">
+                <span class="story__cat">房產金融</span>
+                <span class="story__dot">·</span>
+                <span class="story__read">7 min</span>
+              </div>
+              <h4>房貸利率怎麼選？<br/>固定利率 vs 機動利率完整比較</h4>
+              <span class="story-list__arrow">→</span>
+            </div>
+          </li>
+
+          <li class="story-list__item" data-kcat="retire">
+            <div class="story-list__photo">
+              <img src="assets/img/article-retirement.jpg" alt="" onerror="this.classList.add('img--missing')" />
+            </div>
+            <div class="story-list__body">
+              <div class="story__meta">
+                <span class="story__cat">退休規劃</span>
+                <span class="story__dot">·</span>
+                <span class="story__read">6 min</span>
+              </div>
+              <h4>30 歲開始存退休金，<br/>每月只需這樣做</h4>
+              <span class="story-list__arrow">→</span>
+            </div>
+          </li>
+
+          <li class="story-list__item" data-kcat="tax">
+            <div class="story-list__photo">
+              <img src="assets/img/article-tax.jpg" alt="" onerror="this.classList.add('img--missing')" />
+            </div>
+            <div class="story-list__body">
+              <div class="story__meta">
+                <span class="story__cat">稅務知識</span>
+                <span class="story__dot">·</span>
+                <span class="story__read">8 min</span>
+              </div>
+              <h4>遺產稅與贈與稅：<br/>提前規劃，讓財富傳承更有效率</h4>
+              <span class="story-list__arrow">→</span>
+            </div>
+          </li>
+
+          <li class="story-list__item" data-kcat="risk">
+            <div class="story-list__photo">
+              <img src="assets/img/article-risk.jpg" alt="" onerror="this.classList.add('img--missing')" />
+            </div>
+            <div class="story-list__body">
+              <div class="story__meta">
+                <span class="story__cat">風險管理</span>
+                <span class="story__dot">·</span>
+                <span class="story__read">5 min</span>
+              </div>
+              <h4>保障缺口檢視：<br/>您的保險真的夠用嗎？</h4>
+              <span class="story-list__arrow">→</span>
+            </div>
+          </li>
+        </ul>
+
       </div>
 
-      <div class="articles__more">
-        <a href="#contact" class="btn btn--ghost">查看更多文章 →</a>
+      <div class="reading__more">
+        <a href="#contact" class="link-more">查看更多文章　<i>View archive</i> →</a>
       </div>
     </section>
 
-    <!-- ===== Testimonials ===== -->
-    <section class="panel" id="testimonials">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Client Stories · 客戶見證</div>
-          <h2 class="panel__title">每一則回饋，都是繼續用心服務的理由</h2>
+    <!-- ============ Testimonials ============ -->
+    <section class="stories" id="testimonials">
+      <div class="folio-bar">
+        <span class="folio">№ 06</span>
+        <span class="folio-divider"></span>
+        <span class="folio">Client Stories</span>
+      </div>
+
+      <div class="stories__grid">
+        <figure class="hero-quote">
+          <span class="hero-quote__mark">“</span>
+          <blockquote>
+            不只是顧問，<br/>
+            更像是<em>信任</em>的財務夥伴，<br/>
+            讓我做決定更安心。
+          </blockquote>
+          <figcaption>
+            <span class="hero-quote__name">陳先生</span>
+            <span class="hero-quote__role">42 歲　·　企業主</span>
+          </figcaption>
+        </figure>
+
+        <div class="side-quotes">
+          <figure class="side-quote">
+            <div class="side-quote__rate">★★★★★</div>
+            <blockquote>讓我第一次真正理解自己的保障，原來保險可以這樣規劃。</blockquote>
+            <figcaption>
+              <span>王小姐</span>
+              <i>35 歲　·　上班族</i>
+            </figcaption>
+          </figure>
+          <figure class="side-quote">
+            <div class="side-quote__rate">★★★★★</div>
+            <blockquote>就像自己的孩子一樣貼心，退休後的財務終於不再煩惱。</blockquote>
+            <figcaption>
+              <span>林媽媽</span>
+              <i>58 歲　·　退休族</i>
+            </figcaption>
+          </figure>
         </div>
       </div>
-
-      <div class="quotes">
-        <figure class="quote">
-          <div class="quote__rate">★★★★★</div>
-          <blockquote class="quote__text">讓我第一次真正理解自己的保障，原來保險可以這樣規劃。</blockquote>
-          <figcaption class="quote__who">
-            <div class="quote__avatar">王</div>
-            <div>
-              <div class="quote__name">王小姐</div>
-              <div class="quote__role">35 歲｜上班族</div>
-            </div>
-          </figcaption>
-        </figure>
-        <figure class="quote">
-          <div class="quote__rate">★★★★★</div>
-          <blockquote class="quote__text">不只是顧問，更像是信任的財務夥伴，讓我做決定更安心。</blockquote>
-          <figcaption class="quote__who">
-            <div class="quote__avatar">陳</div>
-            <div>
-              <div class="quote__name">陳先生</div>
-              <div class="quote__role">42 歲｜企業主</div>
-            </div>
-          </figcaption>
-        </figure>
-        <figure class="quote">
-          <div class="quote__rate">★★★★★</div>
-          <blockquote class="quote__text">就像自己的孩子一樣貼心，退休後的財務終於不再煩惱。</blockquote>
-          <figcaption class="quote__who">
-            <div class="quote__avatar">林</div>
-            <div>
-              <div class="quote__name">林媽媽</div>
-              <div class="quote__role">58 歲｜退休族</div>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
     </section>
 
-    <!-- ===== Contact ===== -->
-    <section class="panel panel--contact" id="contact">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__breadcrumb">Get In Touch · 聯絡乙嘉</div>
-          <h2 class="panel__title">隨時為您把關財務</h2>
-          <p class="panel__lead">無論您正在規劃保險、購屋、退休，或想要一次全面盤點財務，<br/>歡迎透過下方任一方式與我聯繫，24 小時內必回覆。</p>
+    <!-- ============ Contact ============ -->
+    <section class="contact" id="contact">
+      <div class="contact__bg">
+        <img src="assets/img/contact-backdrop.jpg" alt="" onerror="this.classList.add('img--missing')" />
+        <div class="contact__overlay"></div>
+      </div>
+
+      <div class="contact__inner">
+        <div class="folio-bar folio-bar--light">
+          <span class="folio folio--light">№ 07</span>
+          <span class="folio-divider"></span>
+          <span class="folio folio--light">Get in Touch</span>
+        </div>
+
+        <h2 class="contact__title">
+          隨時為您把關財務<br/>
+          <i>Always here, with care.</i>
+        </h2>
+        <p class="contact__lead">
+          無論您正在規劃保險、購屋、退休，或想要一次全面盤點財務，<br/>
+          歡迎透過下方任一方式與我聯繫，24 小時內必回覆。
+        </p>
+
+        <div class="contact__cards">
+          <a href="tel:+886" class="cc">
+            <div class="cc__icon">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M8 6 C8 6, 12 4, 14 8 C16 12, 12 14, 12 14 C12 14, 14 20, 20 22 C20 22, 22 18, 26 20 C28 22, 26 26, 26 26 C20 30, 8 22, 8 6 Z" stroke="currentColor" stroke-width="1.4"/></svg>
+            </div>
+            <div>
+              <div class="cc__title">立即撥打</div>
+              <div class="cc__sub">電話諮詢　·　+886</div>
+            </div>
+            <span class="cc__arrow">→</span>
+          </a>
+          <a href="https://line.me" target="_blank" rel="noopener" class="cc cc--accent">
+            <div class="cc__icon"><span>L</span></div>
+            <div>
+              <div class="cc__title">加入 LINE</div>
+              <div class="cc__sub">企業官方帳號　·　訊息諮詢</div>
+            </div>
+            <span class="cc__arrow">→</span>
+          </a>
+          <a href="#top" class="cc">
+            <div class="cc__icon">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M6 24 L6 8 L24 8 L24 24 Z" stroke="currentColor" stroke-width="1.4"/><path d="M10 14 L20 14 M10 18 L18 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="cc__title">預約諮詢</div>
+              <div class="cc__sub">填寫需求　·　量身規劃</div>
+            </div>
+            <span class="cc__arrow">→</span>
+          </a>
+        </div>
+
+        <dl class="contact__info">
+          <div>
+            <dt>服務時間</dt>
+            <dd>週一至週六　·　09:00 – 18:00</dd>
+          </div>
+          <div>
+            <dt>回覆時間</dt>
+            <dd>24 小時內回覆</dd>
+          </div>
+          <div>
+            <dt>服務方式</dt>
+            <dd>線上諮詢　/　面對面諮詢</dd>
+          </div>
+        </dl>
+
+        <div class="signature">
+          <div class="signature__text">— Iris</div>
+          <div class="signature__line"></div>
+          <div class="signature__role">陳乙嘉　Financial Advisor</div>
         </div>
       </div>
-
-      <div class="contact-grid">
-        <a href="tel:+886" class="contact-card">
-          <div class="contact-card__icon">☎</div>
-          <div class="contact-card__title">立即撥打</div>
-          <div class="contact-card__sub">電話諮詢　+886</div>
-          <div class="contact-card__arrow">→</div>
-        </a>
-        <a href="https://line.me" target="_blank" rel="noopener" class="contact-card contact-card--accent">
-          <div class="contact-card__icon">L</div>
-          <div class="contact-card__title">加入 LINE</div>
-          <div class="contact-card__sub">企業官方帳號　訊息諮詢</div>
-          <div class="contact-card__arrow">→</div>
-        </a>
-        <a href="#top" class="contact-card">
-          <div class="contact-card__icon">✎</div>
-          <div class="contact-card__title">預約諮詢</div>
-          <div class="contact-card__sub">填寫需求　量身規劃</div>
-          <div class="contact-card__arrow">→</div>
-        </a>
-      </div>
-
-      <ul class="contact-info">
-        <li>
-          <span class="contact-info__label">服務時間</span>
-          <span class="contact-info__value">週一至週六　09:00 – 18:00</span>
-        </li>
-        <li>
-          <span class="contact-info__label">回覆時間</span>
-          <span class="contact-info__value">24 小時內回覆</span>
-        </li>
-        <li>
-          <span class="contact-info__label">服務方式</span>
-          <span class="contact-info__value">線上諮詢　/　面對面諮詢</span>
-        </li>
-      </ul>
     </section>
 
-    <!-- ===== Footer ===== -->
+    <!-- ============ Footer ============ -->
     <footer class="footer">
-      <div class="footer__brand">
-        <div class="footer__name">陳乙嘉　Iris Chen</div>
-        <div class="footer__title">金融理財顧問　Financial Advisor</div>
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="footer__name">陳乙嘉　<i>Iris Chen</i></div>
+            <div class="footer__role">金融理財顧問　·　Financial Advisor Since 2010</div>
+          </div>
+          <nav class="footer__nav">
+            <a href="#about">關於</a>
+            <a href="#services">服務</a>
+            <a href="#knowledge">知識</a>
+            <a href="#contact">聯絡</a>
+          </nav>
+        </div>
+        <div class="footer__rule"></div>
+        <p class="footer__disclaimer">
+          本網站提供之資訊僅供參考，不構成任何投資建議或保證。<br/>
+          金融商品涉及風險，投資前請詳閱相關說明文件，並依個人財務狀況審慎評估。
+        </p>
+        <div class="footer__copy">© 2026　陳乙嘉 Iris Chen.　All rights reserved.</div>
       </div>
-      <p class="footer__disclaimer">
-        本網站提供之資訊僅供參考，不構成任何投資建議或保證。<br/>
-        金融商品涉及風險，投資前請詳閱相關說明文件，並依個人財務狀況審慎評估。
-      </p>
-      <div class="footer__copy">© 2026 陳乙嘉 Iris Chen. All rights reserved.</div>
     </footer>
 
   </main>

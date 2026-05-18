@@ -2170,3 +2170,25 @@ section {
   .article-body h2 { padding-top: 24px; margin-top: 40px !important; }
   .article-body h2::before { top: 24px; }
 }
+
+/* =========================================================
+   Footer compliance (insurance registration numbers)
+   ========================================================= */
+.footer__compliance {
+  font-family: var(--sans-zh);
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--ash);
+  font-weight: 300;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule-soft);
+  letter-spacing: 0.06em;
+}
+.footer__compliance strong {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--graphite);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}

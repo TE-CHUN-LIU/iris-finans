@@ -2199,3 +2199,97 @@ section {
   font-weight: 500;
   letter-spacing: 0.04em;
 }
+
+/* =========================================================
+   Fold (details/summary) — 收合區塊
+   ========================================================= */
+.fold {
+  margin-top: 56px;
+  border-top: 1px solid var(--rule);
+  padding-top: 0;
+}
+.fold__summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 24px 0;
+  user-select: none;
+  transition: color .2s ease;
+}
+.fold__summary::-webkit-details-marker { display: none; }
+.fold__summary:hover { color: var(--bronze-deep); }
+.fold__sum-zh {
+  font-family: var(--serif-zh);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.fold__sum-en {
+  font-family: var(--italic-en);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--graphite);
+  letter-spacing: 0.02em;
+}
+.fold__sum-arrow {
+  margin-left: auto;
+  font-family: var(--serif-en);
+  font-size: 22px;
+  color: var(--bronze);
+  font-weight: 300;
+  transition: transform .3s ease;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.fold[open] .fold__sum-arrow {
+  transform: rotate(45deg);
+  background: var(--bronze);
+  color: var(--bone);
+  border-color: var(--bronze);
+}
+
+/* light variant 用在 contact section（深色底） */
+.fold--light {
+  border-top: 1px solid rgba(245, 235, 220, 0.18);
+}
+.fold__summary--light .fold__sum-zh { color: var(--bone); }
+.fold__summary--light .fold__sum-en { color: rgba(245, 235, 220, 0.65); }
+.fold__summary--light .fold__sum-arrow {
+  color: var(--bone);
+  border-color: rgba(245, 235, 220, 0.4);
+}
+.fold--light[open] .fold__sum-arrow {
+  background: var(--bone);
+  color: var(--ink);
+  border-color: var(--bone);
+}
+
+/* 內容區塊上下間距 */
+.fold[open] > *:not(summary) {
+  animation: foldFadeIn .35s ease both;
+}
+@keyframes foldFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* contact 區內的 stories grid 在 details 內、給點上下空間 */
+.contact .fold--stories { margin-top: 24px; margin-bottom: 32px; }
+.contact .fold--stories .stories__grid { padding-top: 8px; }
+
+@media (max-width: 720px) {
+  .fold { margin-top: 32px; }
+  .fold__summary { padding: 16px 0; gap: 10px; }
+  .fold__sum-zh { font-size: 16px; }
+  .fold__sum-en { font-size: 13px; }
+  .fold__sum-arrow { width: 26px; height: 26px; font-size: 18px; }
+}

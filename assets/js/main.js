@@ -75,7 +75,7 @@
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
   /* ---------- Sidebar active link on scroll ---------- */
-  const sections = ['top', 'about', 'credentials', 'services', 'knowledge', 'testimonials', 'contact']
+  const sections = ['top', 'about', 'services', 'contact']
     .map(id => document.getElementById(id)).filter(Boolean);
   const sideLinks = document.querySelectorAll('.side-link');
 

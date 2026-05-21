@@ -46,25 +46,13 @@
         <span class="side-link__num">02</span>
         <span class="side-link__label">關於乙嘉　About</span>
       </a>
-      <a href="#credentials" class="side-link" data-target="credentials">
-        <span class="side-link__num">03</span>
-        <span class="side-link__label">專業資歷　Credentials</span>
-      </a>
       <a href="#services" class="side-link" data-target="services">
-        <span class="side-link__num">04</span>
-        <span class="side-link__label">服務項目　Services</span>
-      </a>
-      <a href="#knowledge" class="side-link" data-target="knowledge">
-        <span class="side-link__num">05</span>
-        <span class="side-link__label">財務知識　Knowledge</span>
-      </a>
-      <a href="#testimonials" class="side-link" data-target="testimonials">
-        <span class="side-link__num">06</span>
-        <span class="side-link__label">客戶見證　Stories</span>
+        <span class="side-link__num">03</span>
+        <span class="side-link__label">核心服務　Services</span>
       </a>
       <a href="#contact" class="side-link" data-target="contact">
-        <span class="side-link__num">07</span>
-        <span class="side-link__label">聯絡乙嘉　Contact</span>
+        <span class="side-link__num">04</span>
+        <span class="side-link__label">客戶諮詢　Consultation</span>
       </a>
     </nav>
 
@@ -135,7 +123,7 @@
           </blockquote>
 
           <p class="hero__desc">
-            近 16 年金融理財顧問資歷　·　7 張專業證照　·　服務 0 至 65 歲各年齡層客群。<br/>
+            近 16 年金融理財顧問資歷　·　7 張專業證照　·　服務 18 至 65 歲各年齡層客群。<br/>
             從保險規劃到宏觀財務稅務整合，讓您的財務安心有所依靠。
           </p>
 
@@ -185,7 +173,7 @@
         </div>
         <div class="stat__rule"></div>
         <div class="stat">
-          <div class="stat__num stat__num--text">0<small>–</small>65</div>
+          <div class="stat__num stat__num--text">18<small>–</small>65</div>
           <div class="stat__plus">歲</div>
           <div class="stat__label">
             <span>客群覆蓋</span>
@@ -255,27 +243,32 @@
           </ol>
         </div>
       </div>
-    </section>
 
-    <!-- ============ Credentials ============ -->
-    <section class="credentials" id="credentials">
-      <div class="credentials__banner">
-        <img src="assets/img/credentials-banner.png" alt="" onerror="this.classList.add('img--missing')" />
-        <div class="credentials__banner-overlay"></div>
-        <div class="credentials__banner-text">
-          <div class="folio folio--light">№ 03　·　Credentials</div>
-          <h2 class="credentials__headline">
-            十六年　·　七張證照<br/>
-            <i>The work behind every promise.</i>
-          </h2>
+      <!-- ============ Credentials (收合於 About 內) ============ -->
+      <details class="fold fold--credentials">
+        <summary class="fold__summary">
+          <span class="fold__sum-zh">專業資歷 · 16 年 · 7 張證照</span>
+          <span class="fold__sum-en"><i>Credentials</i></span>
+          <span class="fold__sum-arrow" aria-hidden="true">＋</span>
+        </summary>
+
+        <div class="credentials__banner">
+          <img src="assets/img/credentials-banner.png" alt="" onerror="this.classList.add('img--missing')" />
+          <div class="credentials__banner-overlay"></div>
+          <div class="credentials__banner-text">
+            <div class="folio folio--light">Credentials</div>
+            <h3 class="credentials__headline">
+              十六年　·　七張證照<br/>
+              <i>The work behind every promise.</i>
+            </h3>
+          </div>
         </div>
-      </div>
 
-      <div class="credentials__body">
-        <p class="credentials__lead">
-          自 2010 年 9 月 30 日入行，近 16 年深耕金融理財領域。<br/>
-          每一張證照，都是承諾，也是底氣。
-        </p>
+        <div class="credentials__body">
+          <p class="credentials__lead">
+            自 2010 年 9 月 30 日入行，近 16 年深耕金融理財領域。<br/>
+            每一張證照，都是承諾，也是底氣。
+          </p>
 
         <ol class="cert-list">
           <li class="cert"><span class="cert__no">01</span><div class="cert__main"><span class="cert__name">金融市場分析與投資規劃</span><i class="cert__en">Market Analysis & Investment Planning</i></div><span class="cert__tag">Expert</span></li>
@@ -321,15 +314,16 @@
             <p>宏觀財務規劃、稅務優化、<br/>跨代際財富傳承策略。</p>
           </article>
         </div>
-      </div>
+        </div>
+      </details>
     </section>
 
     <!-- ============ Services ============ -->
     <section class="services" id="services">
       <div class="folio-bar">
-        <span class="folio">№ 04</span>
+        <span class="folio">№ 03</span>
         <span class="folio-divider"></span>
-        <span class="folio">Services</span>
+        <span class="folio">Services & Knowledge</span>
       </div>
 
       <header class="section__head">
@@ -456,21 +450,16 @@
           </article>
         </div>
       </div>
-    </section>
 
-    <!-- ============ Knowledge ============ -->
-    <section class="knowledge" id="knowledge">
-      <div class="folio-bar">
-        <span class="folio">№ 05</span>
-        <span class="folio-divider"></span>
-        <span class="folio">Knowledge Hub</span>
-      </div>
+      <!-- ============ Knowledge (收合於 Services 內) ============ -->
+      <details class="fold fold--knowledge">
+        <summary class="fold__summary">
+          <span class="fold__sum-zh">財務知識專欄 · 5 篇精選</span>
+          <span class="fold__sum-en"><i>The Reading Room</i></span>
+          <span class="fold__sum-arrow" aria-hidden="true">＋</span>
+        </summary>
 
       <header class="section__head section__head--split">
-        <h2 class="section__title">
-          財務知識專欄
-          <span class="section__title-en"><i>The Reading Room</i></span>
-        </h2>
         <p class="section__lead">把專業翻譯成你聽得懂的語言，<br/>讓財務決定不再焦慮。</p>
       </header>
 
@@ -569,52 +558,10 @@
       <div class="reading__more">
         <a href="#contact" class="link-more">查看更多文章　<i>View archive</i> →</a>
       </div>
+      </details>
     </section>
 
-    <!-- ============ Testimonials ============ -->
-    <section class="stories" id="testimonials">
-      <div class="folio-bar">
-        <span class="folio">№ 06</span>
-        <span class="folio-divider"></span>
-        <span class="folio">Client Stories</span>
-      </div>
-
-      <div class="stories__grid">
-        <figure class="hero-quote">
-          <span class="hero-quote__mark">“</span>
-          <blockquote>
-            不只是顧問，<br/>
-            更像是<em>信任</em>的財務夥伴，<br/>
-            讓我做決定更安心。
-          </blockquote>
-          <figcaption>
-            <span class="hero-quote__name">陳先生</span>
-            <span class="hero-quote__role">42 歲　·　企業主</span>
-          </figcaption>
-        </figure>
-
-        <div class="side-quotes">
-          <figure class="side-quote">
-            <div class="side-quote__rate">★★★★★</div>
-            <blockquote>讓我第一次真正理解自己的保障，原來保險可以這樣規劃。</blockquote>
-            <figcaption>
-              <span>王小姐</span>
-              <i>35 歲　·　上班族</i>
-            </figcaption>
-          </figure>
-          <figure class="side-quote">
-            <div class="side-quote__rate">★★★★★</div>
-            <blockquote>就像自己的孩子一樣貼心，退休後的財務終於不再煩惱。</blockquote>
-            <figcaption>
-              <span>林媽媽</span>
-              <i>58 歲　·　退休族</i>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ Contact ============ -->
+    <!-- ============ Contact + Testimonials ============ -->
     <section class="contact" id="contact">
       <div class="contact__bg">
         <img src="assets/img/contact-backdrop.png" alt="" onerror="this.classList.add('img--missing')" />
@@ -623,10 +570,53 @@
 
       <div class="contact__inner">
         <div class="folio-bar folio-bar--light">
-          <span class="folio folio--light">№ 07</span>
+          <span class="folio folio--light">№ 04</span>
           <span class="folio-divider"></span>
-          <span class="folio folio--light">Get in Touch</span>
+          <span class="folio folio--light">Consultation</span>
         </div>
+
+        <!-- ===== 諮詢項目（客戶見證） ===== -->
+        <details class="fold fold--stories fold--light" open>
+          <summary class="fold__summary fold__summary--light">
+            <span class="fold__sum-zh">諮詢項目 · 客戶心聲</span>
+            <span class="fold__sum-en"><i>What clients say</i></span>
+            <span class="fold__sum-arrow" aria-hidden="true">＋</span>
+          </summary>
+
+          <div class="stories__grid">
+            <figure class="hero-quote">
+              <span class="hero-quote__mark">“</span>
+              <blockquote>
+                不只是顧問，<br/>
+                更像是<em>信任</em>的財務夥伴，<br/>
+                讓我做決定更安心。
+              </blockquote>
+              <figcaption>
+                <span class="hero-quote__name">陳先生</span>
+                <span class="hero-quote__role">42 歲　·　企業主</span>
+              </figcaption>
+            </figure>
+
+            <div class="side-quotes">
+              <figure class="side-quote">
+                <div class="side-quote__rate">★★★★★</div>
+                <blockquote>讓我第一次真正理解自己的保障，原來保險可以這樣規劃。</blockquote>
+                <figcaption>
+                  <span>王小姐</span>
+                  <i>35 歲　·　上班族</i>
+                </figcaption>
+              </figure>
+              <figure class="side-quote">
+                <div class="side-quote__rate">★★★★★</div>
+                <blockquote>就像自己的孩子一樣貼心，退休後的財務終於不再煩惱。</blockquote>
+                <figcaption>
+                  <span>林媽媽</span>
+                  <i>58 歲　·　退休族</i>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </details>
 
         <h2 class="contact__title">
           隨時為您把關財務<br/>

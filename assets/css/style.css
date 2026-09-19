@@ -2293,3 +2293,10 @@ section {
   .fold__sum-en { font-size: 13px; }
   .fold__sum-arrow { width: 26px; height: 26px; font-size: 18px; }
 }
+
+/* =========================================================
+   返回鈕（assets/js/back-dock.js）：桌機讓開左側固定側欄，不蓋住「預約諮詢」
+   ========================================================= */
+body .back-dock { left: calc(var(--sidebar-w, 0px) + max(14px, env(safe-area-inset-left))); }
+/* 頁尾留白：捲到最底時返回鈕不蓋住登錄字號與版權列 */
+.footer { padding-bottom: 104px; }

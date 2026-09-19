@@ -711,5 +711,14 @@
   </main>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    /* 返回鈕設定：站台可能掛在子路徑（GitHub Pages /iris-finans/），首頁路徑依目前網址推算 */
+    (function () {
+      var base = location.pathname.replace(/(articles\/)?[^\/]*$/, "");
+      var bare = base.replace(/\/+$/, "") || "/";
+      window.BackDockConfig = { home: base, hide: [bare, base + "index.html"], parents: { "/articles/": base } };
+    })();
+  </script>
+  <script src="assets/js/back-dock.js" defer></script>
 </body>
 </html>

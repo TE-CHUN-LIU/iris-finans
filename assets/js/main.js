@@ -101,6 +101,7 @@
   serviceFilters.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
+      try { sessionStorage.setItem('iris:filter', filter); } catch (e) {}
       serviceFilters.forEach(b => b.classList.toggle('is-active', b === btn));
       services.forEach(s => {
         const match = filter === 'all' || s.dataset.cat === filter;
@@ -115,6 +116,7 @@
   kFilters.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.kfilter;
+      try { sessionStorage.setItem('iris:kfilter', filter); } catch (e) {}
       kFilters.forEach(b => b.classList.toggle('is-active', b === btn));
       stories.forEach(s => {
         const match = filter === 'all' || s.dataset.kcat === filter;
@@ -122,6 +124,18 @@
       });
     });
   });
+
+  /* 返回本頁時還原剛剛展開的摺疊區與篩選分頁（不然頁面高度會變、捲動位置對不上） */
+  document.querySelectorAll('details.fold').forEach((d, i) => {
+    const key = 'iris:fold:' + i;
+    try { const v = sessionStorage.getItem(key); if (v !== null) d.open = v === '1'; } catch (e) {}
+    d.addEventListener('toggle', () => { try { sessionStorage.setItem(key, d.open ? '1' : '0'); } catch (e) {} });
+  });
+  try {
+    const sf = sessionStorage.getItem('iris:filter'), kf = sessionStorage.getItem('iris:kfilter');
+    if (sf && sf !== 'all') { const b = document.querySelector('[data-filter="' + sf + '"]'); if (b) b.click(); }
+    if (kf && kf !== 'all') { const b = document.querySelector('[data-kfilter="' + kf + '"]'); if (b) b.click(); }
+  } catch (e) {}
 
   /* ---------- Reveal on scroll ---------- */
   const revealTargets = document.querySelectorAll(

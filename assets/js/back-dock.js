@@ -110,10 +110,13 @@
     var s = read();
     if (s.idx > 0 && history.length > 1) {
       var before = here(), left = false;
-      window.addEventListener("pagehide", function () { left = true; }, { once: true });
+      // 返回真的發生了（popstate／整頁離開）就取消保險；不然使用者返回後很快又點回同一頁，會被誤判成「返回沒成功」
+      function done() { left = true; clearTimeout(guard); window.removeEventListener("popstate", done); }
+      window.addEventListener("popstate", done);
+      window.addEventListener("pagehide", done, { once: true });
       history.back();
       // 保險：堆疊說有上一頁、瀏覽器其實沒有（另開分頁帶過來的紀錄）→ 改走上一層
-      setTimeout(function () { if (!left && here() === before && document.visibilityState === "visible") { var t = read(); t.list = [before]; t.idx = 0; write(t); goParent(); } }, 1500);
+      var guard = setTimeout(function () { window.removeEventListener("popstate", done); if (!left && here() === before && document.visibilityState === "visible") { var t = read(); t.list = [before]; t.idx = 0; write(t); goParent(); } }, 1500);
     } else goParent();
   }
 

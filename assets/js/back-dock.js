@@ -15,11 +15,13 @@
   var PARENTS = cfg.parents || {};
   var SK = "bd:stack", YK = "bd:y:";
 
-  function here() { return location.pathname + location.search + location.hash; }
-  function read() { try { var s = JSON.parse(sessionStorage.getItem(SK)); if (s && s.list && s.list.length) return s; } catch (e) {} return { list: [], idx: -1 }; }
+  // URL fragments can carry one-time credentials (for example an admin
+  // password-reset token). They must never be persisted in sessionStorage.
+  function here() { return location.pathname + location.search; }
+  function read() { try { var s = JSON.parse(sessionStorage.getItem(SK)); if (s && s.list && s.list.length) return s; } catch {} return { list: [], idx: -1 }; }
   function write(s) {
     if (s.list.length > 60) { var cut = s.list.length - 60; s.list = s.list.slice(cut); s.idx = Math.max(0, s.idx - cut); }
-    try { sessionStorage.setItem(SK, JSON.stringify(s)); } catch (e) {}
+    try { sessionStorage.setItem(SK, JSON.stringify(s)); } catch {}
   }
   function push(u) { var s = read(); if (s.list[s.idx] === u) return; s.list = s.list.slice(0, s.idx + 1); s.list.push(u); s.idx = s.list.length - 1; write(s); }
   function replace(u) { var s = read(); if (s.idx < 0) { push(u); return; } s.list[s.idx] = u; write(s); }
@@ -37,11 +39,11 @@
   function saveY() {
     if (restoring) return;
     var s = read(); if (s.idx < 0) return;
-    try { sessionStorage.setItem(YK + s.idx, JSON.stringify({ u: s.list[s.idx], y: Math.round(window.scrollY || 0) })); } catch (e) {}
+    try { sessionStorage.setItem(YK + s.idx, JSON.stringify({ u: s.list[s.idx], y: Math.round(window.scrollY || 0) })); } catch {}
   }
   function savedY() {
     var s = read();
-    try { var v = JSON.parse(sessionStorage.getItem(YK + s.idx)); if (v && v.u === s.list[s.idx]) return v.y; } catch (e) {}
+    try { var v = JSON.parse(sessionStorage.getItem(YK + s.idx)); if (v && v.u === s.list[s.idx]) return v.y; } catch {}
     return null;
   }
   function restoreY(target) {
@@ -69,7 +71,7 @@
 
   /* ---- 追蹤站內走過的路 ---- */
   var navType = "navigate";
-  try { var ne = performance.getEntriesByType("navigation")[0]; if (ne && ne.type) navType = ne.type; } catch (e) {}
+  try { var ne = performance.getEntriesByType("navigation")[0]; if (ne && ne.type) navType = ne.type; } catch {}
   if (navType === "back_forward") { traverse(here()); restoreY(savedY()); }
   else if (navType === "reload") { if (read().idx < 0) push(here()); }
   else push(here());
@@ -92,7 +94,7 @@
   /* ---- 上一層（沒有站內上一頁時用） ---- */
   function parentCandidates() {
     var p = location.pathname.replace(/\/+$/, ""), out = [];
-    for (var k in PARENTS) { try { if (new RegExp(k).test(p) && PARENTS[k] !== p) out.push(PARENTS[k]); } catch (e) {} }
+    for (var k in PARENTS) { try { if (new RegExp(k).test(p) && PARENTS[k] !== p) out.push(PARENTS[k]); } catch {} }
     var parts = p.split("/").filter(Boolean);
     while (parts.length > 1) { parts.pop(); out.push("/" + parts.join("/")); }
     out.push(HOME);
@@ -127,7 +129,7 @@
     var p = location.pathname.replace(/\/+$/, "") || "/";
     if (off()) return true;
     // 頁面自己的返回連結看得到時，就不重複放浮動鈕（例：工具頁會員模式的頂欄）
-    if (cfg.hideWhenVisible) { try { var own = document.querySelector(cfg.hideWhenVisible); if (own && own.getClientRects().length && getComputedStyle(own).visibility !== "hidden") return true; } catch (e) {} }
+    if (cfg.hideWhenVisible) { try { var own = document.querySelector(cfg.hideWhenVisible); if (own && own.getClientRects().length && getComputedStyle(own).visibility !== "hidden") return true; } catch {} }
     for (var i = 0; i < HIDE.length; i++) if (HIDE[i] === p) return read().idx <= 0;
     return false;
   }
@@ -143,7 +145,7 @@
         var r = el.getBoundingClientRect();
         if (r.width >= window.innerWidth * 0.6 && r.height < window.innerHeight * 0.4 && r.bottom >= window.innerHeight - 2) extra = Math.max(extra, Math.round(window.innerHeight - r.top));
       }
-    } catch (e) {}
+    } catch {}
     btn.style.setProperty("--bd-lift", extra + "px");
   }
   function update() { if (!btn) return; btn.hidden = hidden(); if (!btn.hidden) setTimeout(lift, 60); }
